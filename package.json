@@ -1,6 +1,6 @@
 {
   "name": "mrf-proj-atm_machine",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "CLI project of ATM",
   "main": "index.js",
   "type": "module",
