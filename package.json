@@ -1,5 +1,5 @@
 {
-  "name": "atmmachine",
+  "name": "mrf-proj-atm_machine",
   "version": "1.0.0",
   "description": "CLI project of ATM",
   "main": "index.js",
