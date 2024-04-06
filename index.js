@@ -54,6 +54,24 @@ while (isLogin === false && counter > 0) {
                 }
             }
         }
+        else if (option1.selectedOption1 === "Fast Cash") {
+            let fcash = await inquirer.prompt([{
+                    message: "Select Fast Cash options!",
+                    type: "list",
+                    name: "selectedoption",
+                    choices: [500, 1000, 5000, 10000, 20000, 25000]
+                }]);
+            if (accBalance < fcash.selectedoption) {
+                console.log("Insufficient Balance!");
+            }
+            else {
+                accBalance -= fcash.selectedoption;
+                console.log(`Take your Cash! Remaining Balance Rs. ${accBalance}`);
+            }
+        }
+        else if (option1.selectedOption1 === "Cancel") {
+            console.log("Transaction Cancelled!");
+        }
     }
     else {
         console.log("Entered Pin is incorrect!");
