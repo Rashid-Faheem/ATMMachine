@@ -1,11 +1,12 @@
 #! /usr/bin/env node
 import inquirer from "inquirer";
+import PasswordPrompt from "inquirer/lib/prompts/password.js";
 
 console.log(`---------------------------------------------------------`);
 console.log(`                   Welcome to My Bank                   `);
 console.log(`---------------------------------------------------------`);
 
-const userPin: number = 3771;
+const userPin = "3771";
 let isLogin: boolean = false;
 let isok: boolean = false;
 let counter: number = 4;
@@ -16,9 +17,12 @@ while (isLogin === false && counter > 0) {
     {
       message: "Enter Pin Number",
       name: "pinEntered",
-      type: "number",
+      type: "password",
     },
   ]);
+  console.log(pinNumber.pinEntered);
+  console.log(userPin);
+  
   if (pinNumber.pinEntered === userPin) {
     isLogin = true;
     console.log(`---------------------------------------------------------`);
@@ -28,7 +32,7 @@ while (isLogin === false && counter > 0) {
       {
         message: "Select Option!",
         name: "selectedOption1",
-        type: "list",
+        type: "rawlist",
         choices: ["Show Balance", "Cash Withdrawl", "Fast Cash", "Cancel"],
       },
     ]);

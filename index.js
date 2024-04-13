@@ -3,7 +3,7 @@ import inquirer from "inquirer";
 console.log(`---------------------------------------------------------`);
 console.log(`                   Welcome to My Bank                   `);
 console.log(`---------------------------------------------------------`);
-const userPin = 3771;
+const userPin = "3771";
 let isLogin = false;
 let isok = false;
 let counter = 4;
@@ -13,9 +13,11 @@ while (isLogin === false && counter > 0) {
         {
             message: "Enter Pin Number",
             name: "pinEntered",
-            type: "number",
+            type: "password",
         },
     ]);
+    console.log(pinNumber.pinEntered);
+    console.log(userPin);
     if (pinNumber.pinEntered === userPin) {
         isLogin = true;
         console.log(`---------------------------------------------------------`);
@@ -25,7 +27,7 @@ while (isLogin === false && counter > 0) {
             {
                 message: "Select Option!",
                 name: "selectedOption1",
-                type: "list",
+                type: "rawlist",
                 choices: ["Show Balance", "Cash Withdrawl", "Fast Cash", "Cancel"],
             },
         ]);
@@ -55,12 +57,14 @@ while (isLogin === false && counter > 0) {
             }
         }
         else if (option1.selectedOption1 === "Fast Cash") {
-            let fcash = await inquirer.prompt([{
+            let fcash = await inquirer.prompt([
+                {
                     message: "Select Fast Cash options!",
                     type: "list",
                     name: "selectedoption",
-                    choices: [500, 1000, 5000, 10000, 20000, 25000]
-                }]);
+                    choices: [500, 1000, 5000, 10000, 20000, 25000],
+                },
+            ]);
             if (accBalance < fcash.selectedoption) {
                 console.log("Insufficient Balance!");
             }
